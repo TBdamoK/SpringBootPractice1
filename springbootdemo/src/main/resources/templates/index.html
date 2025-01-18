@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Practice 1</title>
+        <style>
+            body{
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f9f9f9;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="display: flex; justify-content: center;">Electronic shop items</h1>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; padding: 20px; margin: 0 auto; max-width: 1200px;">
+            <div th:each="item : ${items}" style="background-color: #e0f4f4; border-radius: 10px; padding: 20px;text-align: center; display: flex; flex-direction: column; align-items: center;">
+                <span th:text="${item.getName()}" style="font-size: 1.5rem; font-weight: bold; color: #003366; margin-bottom: 10px;"></span>
+                <span th:text="${item.getDescription()}" style="margin: 5px 0; font-size: 1rem; color: #333;"></span>
+                <span th:text="${item.getPrice() + ' $'}" style="margin: 10px 0; font-size: 1.2rem; font-weight: bold; color: green;"></span>
+                <button style="margin-top: 10px; padding: 10px 20px; font-size: 1rem; background-color: #006600; color: white; border: none; border-radius: 5px; cursor: pointer;">DETAILS</button>
+            </div>
+        </div>
+    </body>
+</html>
